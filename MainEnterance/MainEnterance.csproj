@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{58C5B5A9-544B-4770-B174-9331B01C4603}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MainEnterance</RootNamespace>
+    <AssemblyName>MainEnterance</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.5, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.5\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmForget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmForget.Designer.cs">
+      <DependentUpon>frmForget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEntrance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEntrance.Designer.cs">
+      <DependentUpon>frmEntrance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClient.Designer.cs">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReservation.Designer.cs">
+      <DependentUpon>frmReservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRooms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRooms.Designer.cs">
+      <DependentUpon>frmRooms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStaff.Designer.cs">
+      <DependentUpon>frmStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HoteldbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoteldbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HoteldbDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoteldbDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HoteldbDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoteldbDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HoteldbDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoteldbDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HoteldbDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoteldbDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HoteldbDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoteldbDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HoteldbDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoteldbDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Room.cs" />
+    <EmbeddedResource Include="frmForget.resx">
+      <DependentUpon>frmForget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEntrance.resx">
+      <DependentUpon>frmEntrance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClient.resx">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReservation.resx">
+      <DependentUpon>frmReservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRooms.resx">
+      <DependentUpon>frmRooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStaff.resx">
+      <DependentUpon>frmStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="HoteldbDataSet.xsc">
+      <DependentUpon>HoteldbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoteldbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HoteldbDataSet.xss">
+      <DependentUpon>HoteldbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet1.xsc">
+      <DependentUpon>HoteldbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoteldbDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HoteldbDataSet1.xss">
+      <DependentUpon>HoteldbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet2.xsc">
+      <DependentUpon>HoteldbDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoteldbDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HoteldbDataSet2.xss">
+      <DependentUpon>HoteldbDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet3.xsc">
+      <DependentUpon>HoteldbDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoteldbDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HoteldbDataSet3.xss">
+      <DependentUpon>HoteldbDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet4.xsc">
+      <DependentUpon>HoteldbDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoteldbDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HoteldbDataSet4.xss">
+      <DependentUpon>HoteldbDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet5.xsc">
+      <DependentUpon>HoteldbDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoteldbDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HoteldbDataSet5.xss">
+      <DependentUpon>HoteldbDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet6.xsc">
+      <DependentUpon>HoteldbDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoteldbDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HoteldbDataSet6.xss">
+      <DependentUpon>HoteldbDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sleeping.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amenities.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\family.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\parenting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\parenting1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\booking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\booking %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\concierge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flamingo_1998648.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shutdown_4436954.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\concierge1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\parenting2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bed1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flamingo_19986481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flamingo_19986482.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shutdown_44369541.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\istockphoto-669882030-170667a.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unlocked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\telephone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gmail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\location-pin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sleeping1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\double-bed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sleeping2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dollar-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visa %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paypal %281%29.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
