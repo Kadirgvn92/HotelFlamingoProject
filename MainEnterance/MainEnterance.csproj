@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAvailableRooms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAvailableRooms.Designer.cs">
+      <DependentUpon>frmAvailableRooms.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmForget.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,9 +135,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HoteldbDataSet6.xsd</DependentUpon>
     </Compile>
+    <Compile Include="HoteldbDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoteldbDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HoteldbDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoteldbDataSet8.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room.cs" />
+    <EmbeddedResource Include="frmAvailableRooms.resx">
+      <DependentUpon>frmAvailableRooms.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmForget.resx">
       <DependentUpon>frmForget.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +258,28 @@
     </None>
     <None Include="HoteldbDataSet6.xss">
       <DependentUpon>HoteldbDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet7.xsc">
+      <DependentUpon>HoteldbDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoteldbDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HoteldbDataSet7.xss">
+      <DependentUpon>HoteldbDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet8.xsc">
+      <DependentUpon>HoteldbDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="HoteldbDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoteldbDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HoteldbDataSet8.xss">
+      <DependentUpon>HoteldbDataSet8.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -386,6 +427,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\paypal %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\credit-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contactless.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -38,11 +38,7 @@ namespace MainEnterance
             // TODO: This line of code loads data into the 'hoteldbDataSet2.Staff' table. You can move, or remove it, as needed.
             this.staffTableAdapter1.Fill(this.hoteldbDataSet2.Staff);
             populate();
-            
-        }
-
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
-        {
+            txt_password.UseSystemPasswordChar = true;
             
         }
 
@@ -55,9 +51,10 @@ namespace MainEnterance
         {
             txt_id.Text = dt_staff.SelectedRows[0].Cells[0].Value.ToString();
             txt_username.Text = dt_staff.SelectedRows[0].Cells[1].Value.ToString();
-            txt_name.Text = dt_staff.SelectedRows[0].Cells[2].Value.ToString();
-            txt_phone.Text = dt_staff.SelectedRows[0].Cells[3].Value.ToString();
-            txt_email.Text = dt_staff.SelectedRows[0].Cells[4].Value.ToString();
+            txt_password.Text = dt_staff.SelectedRows[0].Cells[2].Value.ToString();
+            txt_name.Text = dt_staff.SelectedRows[0].Cells[3].Value.ToString();
+            txt_phone.Text = dt_staff.SelectedRows[0].Cells[4].Value.ToString();
+            txt_email.Text = dt_staff.SelectedRows[0].Cells[5].Value.ToString();
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -102,6 +99,45 @@ namespace MainEnterance
             {
                 populate();
             }
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE staff SET  staff_username = '" + txt_username.Text + "', staff_password = '" + txt_password.Text + "', staff_name = '" + txt_name.Text + "' , staff_phone = '" + txt_phone.Text + "', staff_email = '" + txt_email.Text + "' WHERE Id = " + txt_id.Text + ";", conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Staff succesfully updated", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conn.Close();
+                populate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private bool isPasswordVisible = true;
+        private void txt_password_IconRightClick(object sender, EventArgs e)
+        {
+            
+            if (isPasswordVisible)
+            {
+                // Eğer şifre görünürse, şifreyi gizle
+                txt_password.UseSystemPasswordChar = true; 
+            }
+            else
+            {
+                // Eğer şifre gizliyse, şifreyi göster
+                txt_password.UseSystemPasswordChar = false; 
+            }
+
+            isPasswordVisible = !isPasswordVisible; 
         }
     }
 }

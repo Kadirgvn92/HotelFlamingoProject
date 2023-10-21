@@ -39,11 +39,6 @@
             this.staffTableAdapter = new MainEnterance.HoteldbDataSetTableAdapters.staffTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.dt_staff = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.ıdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffusernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffphoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffemailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.hoteldbDataSet2 = new MainEnterance.HoteldbDataSet2();
             this.staffTableAdapter1 = new MainEnterance.HoteldbDataSet2TableAdapters.StaffTableAdapter();
@@ -55,17 +50,22 @@
             this.txt_search = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_id = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_exit = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btn_delete = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btn_edit = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btn_add = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staff_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffusernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffphoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffemailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoteldbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dt_staff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoteldbDataSet2)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -73,7 +73,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(411, 36);
+            this.label1.Location = new System.Drawing.Point(395, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(174, 37);
             this.label1.TabIndex = 0;
@@ -109,17 +109,17 @@
             this.dt_staff.AutoGenerateColumns = false;
             this.dt_staff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.RoyalBlue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dt_staff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dt_staff.ColumnHeadersHeight = 15;
-            this.dt_staff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dt_staff.ColumnHeadersHeight = 30;
             this.dt_staff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ıdDataGridViewTextBoxColumn,
+            this.Column1,
+            this.staff_password,
             this.staffusernameDataGridViewTextBoxColumn,
             this.staffnameDataGridViewTextBoxColumn,
             this.staffphoneDataGridViewTextBoxColumn,
@@ -151,8 +151,8 @@
             this.dt_staff.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dt_staff.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dt_staff.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dt_staff.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dt_staff.ThemeStyle.HeaderStyle.Height = 15;
+            this.dt_staff.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dt_staff.ThemeStyle.HeaderStyle.Height = 30;
             this.dt_staff.ThemeStyle.ReadOnly = false;
             this.dt_staff.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dt_staff.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -162,36 +162,6 @@
             this.dt_staff.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dt_staff.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dt_staff.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_staff_CellContentClick);
-            // 
-            // ıdDataGridViewTextBoxColumn
-            // 
-            this.ıdDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.ıdDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.ıdDataGridViewTextBoxColumn.Name = "ıdDataGridViewTextBoxColumn";
-            // 
-            // staffusernameDataGridViewTextBoxColumn
-            // 
-            this.staffusernameDataGridViewTextBoxColumn.DataPropertyName = "staff_username";
-            this.staffusernameDataGridViewTextBoxColumn.HeaderText = "staff_username";
-            this.staffusernameDataGridViewTextBoxColumn.Name = "staffusernameDataGridViewTextBoxColumn";
-            // 
-            // staffnameDataGridViewTextBoxColumn
-            // 
-            this.staffnameDataGridViewTextBoxColumn.DataPropertyName = "staff_name";
-            this.staffnameDataGridViewTextBoxColumn.HeaderText = "staff_name";
-            this.staffnameDataGridViewTextBoxColumn.Name = "staffnameDataGridViewTextBoxColumn";
-            // 
-            // staffphoneDataGridViewTextBoxColumn
-            // 
-            this.staffphoneDataGridViewTextBoxColumn.DataPropertyName = "staff_phone";
-            this.staffphoneDataGridViewTextBoxColumn.HeaderText = "staff_phone";
-            this.staffphoneDataGridViewTextBoxColumn.Name = "staffphoneDataGridViewTextBoxColumn";
-            // 
-            // staffemailDataGridViewTextBoxColumn
-            // 
-            this.staffemailDataGridViewTextBoxColumn.DataPropertyName = "staff_email";
-            this.staffemailDataGridViewTextBoxColumn.HeaderText = "staff_email";
-            this.staffemailDataGridViewTextBoxColumn.Name = "staffemailDataGridViewTextBoxColumn";
             // 
             // staffBindingSource1
             // 
@@ -245,6 +215,7 @@
             this.txt_password.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txt_password.ForeColor = System.Drawing.Color.Black;
             this.txt_password.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_password.IconRight = ((System.Drawing.Image)(resources.GetObject("txt_password.IconRight")));
             this.txt_password.Location = new System.Drawing.Point(16, 257);
             this.txt_password.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_password.Name = "txt_password";
@@ -253,6 +224,7 @@
             this.txt_password.SelectedText = "";
             this.txt_password.Size = new System.Drawing.Size(262, 34);
             this.txt_password.TabIndex = 3;
+            this.txt_password.IconRightClick += new System.EventHandler(this.txt_password_IconRightClick);
             // 
             // txt_name
             // 
@@ -372,23 +344,28 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightPink;
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.BackColor = System.Drawing.Color.Bisque;
+            this.panel1.Controls.Add(this.btn_exit);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(944, 100);
             this.panel1.TabIndex = 11;
             // 
-            // pictureBox1
+            // btn_exit
             // 
-            this.pictureBox1.Image = global::MainEnterance.Properties.Resources.card2;
-            this.pictureBox1.Location = new System.Drawing.Point(292, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(102, 86);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.btn_exit.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btn_exit.HoverState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_exit.Image = global::MainEnterance.Properties.Resources.shutdown_44369541;
+            this.btn_exit.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btn_exit.ImageRotate = 0F;
+            this.btn_exit.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_exit.Location = new System.Drawing.Point(893, 11);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_exit.Size = new System.Drawing.Size(38, 39);
+            this.btn_exit.TabIndex = 3;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // btn_delete
             // 
@@ -417,7 +394,7 @@
             this.btn_edit.Size = new System.Drawing.Size(70, 75);
             this.btn_edit.TabIndex = 7;
             this.btn_edit.TabStop = false;
-            this.btn_edit.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // btn_add
             // 
@@ -433,6 +410,43 @@
             this.btn_add.TabIndex = 7;
             this.btn_add.TabStop = false;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.HeaderText = "Id Number";
+            this.Column1.Name = "Column1";
+            // 
+            // staff_password
+            // 
+            this.staff_password.DataPropertyName = "staff_password";
+            this.staff_password.HeaderText = "Password";
+            this.staff_password.Name = "staff_password";
+            this.staff_password.Visible = false;
+            // 
+            // staffusernameDataGridViewTextBoxColumn
+            // 
+            this.staffusernameDataGridViewTextBoxColumn.DataPropertyName = "staff_username";
+            this.staffusernameDataGridViewTextBoxColumn.HeaderText = "User Name";
+            this.staffusernameDataGridViewTextBoxColumn.Name = "staffusernameDataGridViewTextBoxColumn";
+            // 
+            // staffnameDataGridViewTextBoxColumn
+            // 
+            this.staffnameDataGridViewTextBoxColumn.DataPropertyName = "staff_name";
+            this.staffnameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.staffnameDataGridViewTextBoxColumn.Name = "staffnameDataGridViewTextBoxColumn";
+            // 
+            // staffphoneDataGridViewTextBoxColumn
+            // 
+            this.staffphoneDataGridViewTextBoxColumn.DataPropertyName = "staff_phone";
+            this.staffphoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            this.staffphoneDataGridViewTextBoxColumn.Name = "staffphoneDataGridViewTextBoxColumn";
+            // 
+            // staffemailDataGridViewTextBoxColumn
+            // 
+            this.staffemailDataGridViewTextBoxColumn.DataPropertyName = "staff_email";
+            this.staffemailDataGridViewTextBoxColumn.HeaderText = "E-Mail";
+            this.staffemailDataGridViewTextBoxColumn.Name = "staffemailDataGridViewTextBoxColumn";
             // 
             // frm_Staff
             // 
@@ -453,7 +467,7 @@
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.btn_add);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_Staff";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Staff Info";
@@ -465,7 +479,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.hoteldbDataSet2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -492,12 +505,13 @@
         private Guna.UI2.WinForms.Guna2TextBox txt_phone;
         private Guna.UI2.WinForms.Guna2TextBox txt_email;
         private Guna.UI2.WinForms.Guna2TextBox txt_search;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ıdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2ImageButton btn_exit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staff_password;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffusernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffphoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffemailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

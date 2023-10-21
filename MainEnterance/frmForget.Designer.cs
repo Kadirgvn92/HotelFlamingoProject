@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_ver_email = new System.Windows.Forms.TextBox();
@@ -36,6 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btn_zeroize = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,18 +111,24 @@
             this.btn_zeroize.Name = "btn_zeroize";
             this.btn_zeroize.Size = new System.Drawing.Size(261, 44);
             this.btn_zeroize.TabIndex = 2;
-            this.btn_zeroize.Text = "Zeroize";
+            this.btn_zeroize.Text = "Confirm";
             this.btn_zeroize.UseVisualStyleBackColor = true;
             this.btn_zeroize.Click += new System.EventHandler(this.btn_zeroize_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightPink;
+            this.panel1.BackColor = System.Drawing.Color.Bisque;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, -2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(543, 97);
             this.panel1.TabIndex = 3;
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // frmForget
             // 
@@ -156,5 +164,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_zeroize;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Timer timer;
     }
 }

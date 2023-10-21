@@ -58,16 +58,13 @@ namespace MainEnterance
             this.roomTableAdapter.Fill(this.hoteldbDataSet6.Room);
             occupancyRate();
             guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
+            
         }
 
         private void btn_staff_Click(object sender, EventArgs e)
         {
             frm_Staff frm_Staff = new frm_Staff();
             frm_Staff.Show();
-        }
-        public void roomAvailable()
-        {
-
         }
         private void btn_client_Click(object sender, EventArgs e)
         {

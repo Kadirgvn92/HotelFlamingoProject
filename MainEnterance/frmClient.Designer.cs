@@ -29,14 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClient));
             this.txt_country = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtg_client = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.clientIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientphoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientemailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientcountryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.client_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.client_dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.hoteldbDataSet4 = new MainEnterance.HoteldbDataSet4();
             this.txt_search = new Guna.UI2.WinForms.Guna2TextBox();
@@ -56,13 +63,8 @@
             this.guna2TabControl2 = new Guna.UI2.WinForms.Guna2TabControl();
             this.Reservation = new System.Windows.Forms.TabPage();
             this.ReserveInfo = new System.Windows.Forms.TabPage();
-            this.clientIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientphoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientemailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientcountryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.client_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.client_dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_exit = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_client)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoteldbDataSet4)).BeginInit();
@@ -70,6 +72,7 @@
             this.guna2TabControl2.SuspendLayout();
             this.Reservation.SuspendLayout();
             this.ReserveInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_country
@@ -283,7 +286,7 @@
             "Yemen",
             "Zambia",
             "Zimbabwe"});
-            this.txt_country.Location = new System.Drawing.Point(439, 26);
+            this.txt_country.Location = new System.Drawing.Point(369, 26);
             this.txt_country.Name = "txt_country";
             this.txt_country.Size = new System.Drawing.Size(277, 36);
             this.txt_country.TabIndex = 5;
@@ -304,24 +307,23 @@
             // dtg_client
             // 
             this.dtg_client.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtg_client.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtg_client.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dtg_client.AutoGenerateColumns = false;
             this.dtg_client.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_client.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dtg_client.ColumnHeadersHeight = 20;
-            this.dtg_client.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_client.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dtg_client.ColumnHeadersHeight = 25;
             this.dtg_client.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clientIdDataGridViewTextBoxColumn,
             this.clientnameDataGridViewTextBoxColumn,
@@ -331,26 +333,26 @@
             this.client_address,
             this.client_dob});
             this.dtg_client.DataSource = this.clientBindingSource2;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_client.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_client.DefaultCellStyle = dataGridViewCellStyle15;
             this.dtg_client.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtg_client.Location = new System.Drawing.Point(16, 59);
             this.dtg_client.Name = "dtg_client";
             this.dtg_client.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_client.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_client.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dtg_client.RowHeadersVisible = false;
             this.dtg_client.RowHeadersWidth = 60;
             this.dtg_client.RowTemplate.Height = 40;
@@ -368,8 +370,8 @@
             this.dtg_client.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtg_client.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dtg_client.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dtg_client.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dtg_client.ThemeStyle.HeaderStyle.Height = 20;
+            this.dtg_client.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtg_client.ThemeStyle.HeaderStyle.Height = 25;
             this.dtg_client.ThemeStyle.ReadOnly = false;
             this.dtg_client.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dtg_client.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -379,6 +381,73 @@
             this.dtg_client.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtg_client.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtg_client.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_client_CellContentClick);
+            // 
+            // clientIdDataGridViewTextBoxColumn
+            // 
+            this.clientIdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.clientIdDataGridViewTextBoxColumn.DataPropertyName = "client_Id";
+            this.clientIdDataGridViewTextBoxColumn.FillWeight = 305.0009F;
+            this.clientIdDataGridViewTextBoxColumn.Frozen = true;
+            this.clientIdDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.clientIdDataGridViewTextBoxColumn.MaxInputLength = 99999999;
+            this.clientIdDataGridViewTextBoxColumn.Name = "clientIdDataGridViewTextBoxColumn";
+            // 
+            // clientnameDataGridViewTextBoxColumn
+            // 
+            this.clientnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.clientnameDataGridViewTextBoxColumn.DataPropertyName = "client_name";
+            this.clientnameDataGridViewTextBoxColumn.Frozen = true;
+            this.clientnameDataGridViewTextBoxColumn.HeaderText = "Full Name";
+            this.clientnameDataGridViewTextBoxColumn.Name = "clientnameDataGridViewTextBoxColumn";
+            // 
+            // clientphoneDataGridViewTextBoxColumn
+            // 
+            this.clientphoneDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.clientphoneDataGridViewTextBoxColumn.DataPropertyName = "client_phone";
+            this.clientphoneDataGridViewTextBoxColumn.FillWeight = 36F;
+            this.clientphoneDataGridViewTextBoxColumn.Frozen = true;
+            this.clientphoneDataGridViewTextBoxColumn.HeaderText = "Phone Number";
+            this.clientphoneDataGridViewTextBoxColumn.Name = "clientphoneDataGridViewTextBoxColumn";
+            this.clientphoneDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // clientemailDataGridViewTextBoxColumn
+            // 
+            this.clientemailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.clientemailDataGridViewTextBoxColumn.DataPropertyName = "client_email";
+            this.clientemailDataGridViewTextBoxColumn.FillWeight = 36.64584F;
+            this.clientemailDataGridViewTextBoxColumn.Frozen = true;
+            this.clientemailDataGridViewTextBoxColumn.HeaderText = "E-Mail";
+            this.clientemailDataGridViewTextBoxColumn.Name = "clientemailDataGridViewTextBoxColumn";
+            this.clientemailDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // clientcountryDataGridViewTextBoxColumn
+            // 
+            this.clientcountryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.clientcountryDataGridViewTextBoxColumn.DataPropertyName = "client_country";
+            this.clientcountryDataGridViewTextBoxColumn.FillWeight = 48.40702F;
+            this.clientcountryDataGridViewTextBoxColumn.Frozen = true;
+            this.clientcountryDataGridViewTextBoxColumn.HeaderText = "Country";
+            this.clientcountryDataGridViewTextBoxColumn.Name = "clientcountryDataGridViewTextBoxColumn";
+            this.clientcountryDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // client_address
+            // 
+            this.client_address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.client_address.DataPropertyName = "client_address";
+            this.client_address.FillWeight = 36.64584F;
+            this.client_address.Frozen = true;
+            this.client_address.HeaderText = "Address";
+            this.client_address.Name = "client_address";
+            this.client_address.Width = 350;
+            // 
+            // client_dob
+            // 
+            this.client_dob.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.client_dob.DataPropertyName = "client_dob";
+            this.client_dob.FillWeight = 36.64584F;
+            this.client_dob.HeaderText = "Date of Birth";
+            this.client_dob.Name = "client_dob";
+            this.client_dob.Width = 150;
             // 
             // clientBindingSource2
             // 
@@ -418,7 +487,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(532, 308);
+            this.label2.Location = new System.Drawing.Point(462, 308);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 22);
             this.label2.TabIndex = 7;
@@ -429,7 +498,7 @@
             this.date_dob.Checked = true;
             this.date_dob.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.date_dob.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.date_dob.Location = new System.Drawing.Point(439, 333);
+            this.date_dob.Location = new System.Drawing.Point(369, 333);
             this.date_dob.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.date_dob.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.date_dob.Name = "date_dob";
@@ -454,7 +523,7 @@
             this.btn_delete.ForeColor = System.Drawing.Color.Navy;
             this.btn_delete.Image = global::MainEnterance.Properties.Resources.trash__1_;
             this.btn_delete.ImageSize = new System.Drawing.Size(50, 50);
-            this.btn_delete.Location = new System.Drawing.Point(810, 281);
+            this.btn_delete.Location = new System.Drawing.Point(679, 281);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(254, 88);
             this.btn_delete.TabIndex = 9;
@@ -474,7 +543,7 @@
             this.btn_edit.ForeColor = System.Drawing.Color.DarkBlue;
             this.btn_edit.Image = global::MainEnterance.Properties.Resources.pencil;
             this.btn_edit.ImageSize = new System.Drawing.Size(50, 50);
-            this.btn_edit.Location = new System.Drawing.Point(810, 154);
+            this.btn_edit.Location = new System.Drawing.Point(679, 154);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(254, 88);
             this.btn_edit.TabIndex = 9;
@@ -494,7 +563,7 @@
             this.btn_add.ForeColor = System.Drawing.Color.DarkBlue;
             this.btn_add.Image = global::MainEnterance.Properties.Resources.add__1_;
             this.btn_add.ImageSize = new System.Drawing.Size(50, 50);
-            this.btn_add.Location = new System.Drawing.Point(810, 26);
+            this.btn_add.Location = new System.Drawing.Point(679, 26);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(254, 88);
             this.btn_add.TabIndex = 9;
@@ -546,7 +615,7 @@
             this.txt_address.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_address.IconLeft = global::MainEnterance.Properties.Resources.location_pin;
             this.txt_address.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.txt_address.Location = new System.Drawing.Point(439, 122);
+            this.txt_address.Location = new System.Drawing.Point(369, 122);
             this.txt_address.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_address.Name = "txt_address";
             this.txt_address.PasswordChar = '\0';
@@ -656,7 +725,8 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightPink;
+            this.panel1.BackColor = System.Drawing.Color.Bisque;
+            this.panel1.Controls.Add(this.btn_exit);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 0);
             this.panel1.Name = "panel1";
@@ -679,15 +749,15 @@
             this.guna2TabControl2.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
             this.guna2TabControl2.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.guna2TabControl2.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
-            this.guna2TabControl2.TabButtonIdleState.FillColor = System.Drawing.Color.Navy;
+            this.guna2TabControl2.TabButtonIdleState.FillColor = System.Drawing.Color.RoyalBlue;
             this.guna2TabControl2.TabButtonIdleState.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.guna2TabControl2.TabButtonIdleState.ForeColor = System.Drawing.Color.PaleGoldenrod;
-            this.guna2TabControl2.TabButtonIdleState.InnerColor = System.Drawing.Color.LightPink;
+            this.guna2TabControl2.TabButtonIdleState.InnerColor = System.Drawing.Color.Bisque;
             this.guna2TabControl2.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
-            this.guna2TabControl2.TabButtonSelectedState.FillColor = System.Drawing.Color.PaleGoldenrod;
-            this.guna2TabControl2.TabButtonSelectedState.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2TabControl2.TabButtonSelectedState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TabControl2.TabButtonSelectedState.InnerColor = System.Drawing.Color.LightPink;
+            this.guna2TabControl2.TabButtonSelectedState.FillColor = System.Drawing.Color.Bisque;
+            this.guna2TabControl2.TabButtonSelectedState.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.guna2TabControl2.TabButtonSelectedState.ForeColor = System.Drawing.Color.Navy;
+            this.guna2TabControl2.TabButtonSelectedState.InnerColor = System.Drawing.Color.RoyalBlue;
             this.guna2TabControl2.TabButtonSize = new System.Drawing.Size(180, 60);
             this.guna2TabControl2.TabIndex = 10;
             this.guna2TabControl2.TabMenuBackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -696,6 +766,7 @@
             // Reservation
             // 
             this.Reservation.BackColor = System.Drawing.Color.Transparent;
+            this.Reservation.Controls.Add(this.pictureBox1);
             this.Reservation.Controls.Add(this.btn_delete);
             this.Reservation.Controls.Add(this.txt_clientId);
             this.Reservation.Controls.Add(this.btn_edit);
@@ -728,72 +799,31 @@
             this.ReserveInfo.Text = "Customer Table";
             this.ReserveInfo.UseVisualStyleBackColor = true;
             // 
-            // clientIdDataGridViewTextBoxColumn
+            // btn_exit
             // 
-            this.clientIdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.clientIdDataGridViewTextBoxColumn.DataPropertyName = "client_Id";
-            this.clientIdDataGridViewTextBoxColumn.FillWeight = 305.0009F;
-            this.clientIdDataGridViewTextBoxColumn.Frozen = true;
-            this.clientIdDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.clientIdDataGridViewTextBoxColumn.MaxInputLength = 99999999;
-            this.clientIdDataGridViewTextBoxColumn.Name = "clientIdDataGridViewTextBoxColumn";
+            this.btn_exit.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btn_exit.HoverState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_exit.Image = global::MainEnterance.Properties.Resources.shutdown_44369541;
+            this.btn_exit.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btn_exit.ImageRotate = 0F;
+            this.btn_exit.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_exit.Location = new System.Drawing.Point(1245, 12);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_exit.Size = new System.Drawing.Size(38, 39);
+            this.btn_exit.TabIndex = 4;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
-            // clientnameDataGridViewTextBoxColumn
+            // pictureBox1
             // 
-            this.clientnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.clientnameDataGridViewTextBoxColumn.DataPropertyName = "client_name";
-            this.clientnameDataGridViewTextBoxColumn.Frozen = true;
-            this.clientnameDataGridViewTextBoxColumn.HeaderText = "Full Name";
-            this.clientnameDataGridViewTextBoxColumn.Name = "clientnameDataGridViewTextBoxColumn";
-            // 
-            // clientphoneDataGridViewTextBoxColumn
-            // 
-            this.clientphoneDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.clientphoneDataGridViewTextBoxColumn.DataPropertyName = "client_phone";
-            this.clientphoneDataGridViewTextBoxColumn.FillWeight = 36F;
-            this.clientphoneDataGridViewTextBoxColumn.Frozen = true;
-            this.clientphoneDataGridViewTextBoxColumn.HeaderText = "Phone Number";
-            this.clientphoneDataGridViewTextBoxColumn.Name = "clientphoneDataGridViewTextBoxColumn";
-            this.clientphoneDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // clientemailDataGridViewTextBoxColumn
-            // 
-            this.clientemailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.clientemailDataGridViewTextBoxColumn.DataPropertyName = "client_email";
-            this.clientemailDataGridViewTextBoxColumn.FillWeight = 36.64584F;
-            this.clientemailDataGridViewTextBoxColumn.Frozen = true;
-            this.clientemailDataGridViewTextBoxColumn.HeaderText = "E-Mail";
-            this.clientemailDataGridViewTextBoxColumn.Name = "clientemailDataGridViewTextBoxColumn";
-            this.clientemailDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // clientcountryDataGridViewTextBoxColumn
-            // 
-            this.clientcountryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.clientcountryDataGridViewTextBoxColumn.DataPropertyName = "client_country";
-            this.clientcountryDataGridViewTextBoxColumn.FillWeight = 48.40702F;
-            this.clientcountryDataGridViewTextBoxColumn.Frozen = true;
-            this.clientcountryDataGridViewTextBoxColumn.HeaderText = "Country";
-            this.clientcountryDataGridViewTextBoxColumn.Name = "clientcountryDataGridViewTextBoxColumn";
-            this.clientcountryDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // client_address
-            // 
-            this.client_address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.client_address.DataPropertyName = "client_address";
-            this.client_address.FillWeight = 36.64584F;
-            this.client_address.Frozen = true;
-            this.client_address.HeaderText = "Address";
-            this.client_address.Name = "client_address";
-            this.client_address.Width = 350;
-            // 
-            // client_dob
-            // 
-            this.client_dob.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.client_dob.DataPropertyName = "client_dob";
-            this.client_dob.FillWeight = 36.64584F;
-            this.client_dob.HeaderText = "Date of Birth";
-            this.client_dob.Name = "client_dob";
-            this.client_dob.Width = 150;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(954, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(322, 343);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // frmClient
             // 
@@ -803,7 +833,7 @@
             this.ClientSize = new System.Drawing.Size(1296, 605);
             this.Controls.Add(this.guna2TabControl2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRoom";
@@ -817,6 +847,7 @@
             this.Reservation.ResumeLayout(false);
             this.Reservation.PerformLayout();
             this.ReserveInfo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -851,5 +882,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clientcountryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn client_address;
         private System.Windows.Forms.DataGridViewTextBoxColumn client_dob;
+        private Guna.UI2.WinForms.Guna2ImageButton btn_exit;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
