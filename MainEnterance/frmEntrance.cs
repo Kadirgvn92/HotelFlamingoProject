@@ -14,6 +14,7 @@ namespace MainEnterance
     public partial class frmEntrance : Form
     {
         SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-A6C5CRN\SQLEXPRESS;Initial Catalog=Hoteldb;Integrated Security=True");
+        public string userName, password;
         public frmEntrance()
         {
             InitializeComponent();
@@ -26,11 +27,6 @@ namespace MainEnterance
         }
         private void btn_enter_Click(object sender, EventArgs e)
         {
-           String userName, password;
-
-            userName = txt_user.Text;
-            password = txt_password.Text;
-
 
             try
             {

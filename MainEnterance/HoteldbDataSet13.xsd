@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="HoteldbDataSet13" targetNamespace="http://tempuri.org/HoteldbDataSet13.xsd" xmlns:mstns="http://tempuri.org/HoteldbDataSet13.xsd" xmlns="http://tempuri.org/HoteldbDataSet13.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HoteldbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HoteldbConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MainEnterance.Properties.Settings.GlobalReference.Default.HoteldbConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReservationViewTableAdapter" GeneratorDataComponentClassName="ReservationViewTableAdapter" Name="ReservationView" UserDataComponentName="ReservationViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HoteldbConnectionString (Settings)" DbObjectName="Hoteldb.dbo.ReservationView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT client_name, client_phone, reserve_type, room_number, room_type, adult, child, date_in, date_out, total_price, staff_name, client_Id FROM dbo.ReservationView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="client_name" DataSetColumn="client_name" />
+              <Mapping SourceColumn="client_phone" DataSetColumn="client_phone" />
+              <Mapping SourceColumn="reserve_type" DataSetColumn="reserve_type" />
+              <Mapping SourceColumn="room_number" DataSetColumn="room_number" />
+              <Mapping SourceColumn="room_type" DataSetColumn="room_type" />
+              <Mapping SourceColumn="adult" DataSetColumn="adult" />
+              <Mapping SourceColumn="child" DataSetColumn="child" />
+              <Mapping SourceColumn="date_in" DataSetColumn="date_in" />
+              <Mapping SourceColumn="date_out" DataSetColumn="date_out" />
+              <Mapping SourceColumn="total_price" DataSetColumn="total_price" />
+              <Mapping SourceColumn="staff_name" DataSetColumn="staff_name" />
+              <Mapping SourceColumn="client_Id" DataSetColumn="client_Id" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="HoteldbDataSet13" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="HoteldbDataSet13" msprop:Generator_DataSetName="HoteldbDataSet13">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ReservationView" msprop:Generator_RowEvHandlerName="ReservationViewRowChangeEventHandler" msprop:Generator_RowDeletedName="ReservationViewRowDeleted" msprop:Generator_RowDeletingName="ReservationViewRowDeleting" msprop:Generator_RowEvArgName="ReservationViewRowChangeEvent" msprop:Generator_TablePropName="ReservationView" msprop:Generator_RowChangedName="ReservationViewRowChanged" msprop:Generator_RowChangingName="ReservationViewRowChanging" msprop:Generator_TableClassName="ReservationViewDataTable" msprop:Generator_RowClassName="ReservationViewRow" msprop:Generator_TableVarName="tableReservationView" msprop:Generator_UserTableName="ReservationView">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="client_name" msprop:Generator_ColumnPropNameInRow="client_name" msprop:Generator_ColumnPropNameInTable="client_nameColumn" msprop:Generator_ColumnVarNameInTable="columnclient_name" msprop:Generator_UserColumnName="client_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="client_phone" msprop:Generator_ColumnPropNameInRow="client_phone" msprop:Generator_ColumnPropNameInTable="client_phoneColumn" msprop:Generator_ColumnVarNameInTable="columnclient_phone" msprop:Generator_UserColumnName="client_phone">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="reserve_type" msprop:Generator_ColumnPropNameInRow="reserve_type" msprop:Generator_ColumnPropNameInTable="reserve_typeColumn" msprop:Generator_ColumnVarNameInTable="columnreserve_type" msprop:Generator_UserColumnName="reserve_type">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="room_number" msprop:Generator_ColumnPropNameInRow="room_number" msprop:Generator_ColumnPropNameInTable="room_numberColumn" msprop:Generator_ColumnVarNameInTable="columnroom_number" msprop:Generator_UserColumnName="room_number" type="xs:int" />
+              <xs:element name="room_type" msprop:Generator_ColumnPropNameInRow="room_type" msprop:Generator_ColumnPropNameInTable="room_typeColumn" msprop:Generator_ColumnVarNameInTable="columnroom_type" msprop:Generator_UserColumnName="room_type">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adult" msprop:Generator_ColumnPropNameInRow="adult" msprop:Generator_ColumnPropNameInTable="adultColumn" msprop:Generator_ColumnVarNameInTable="columnadult" msprop:Generator_UserColumnName="adult" type="xs:int" />
+              <xs:element name="child" msprop:Generator_ColumnPropNameInRow="child" msprop:Generator_ColumnPropNameInTable="childColumn" msprop:Generator_ColumnVarNameInTable="columnchild" msprop:Generator_UserColumnName="child" type="xs:int" minOccurs="0" />
+              <xs:element name="date_in" msprop:Generator_ColumnPropNameInRow="date_in" msprop:Generator_ColumnPropNameInTable="date_inColumn" msprop:Generator_ColumnVarNameInTable="columndate_in" msprop:Generator_UserColumnName="date_in" type="xs:dateTime" />
+              <xs:element name="date_out" msprop:Generator_ColumnPropNameInRow="date_out" msprop:Generator_ColumnPropNameInTable="date_outColumn" msprop:Generator_ColumnVarNameInTable="columndate_out" msprop:Generator_UserColumnName="date_out" type="xs:dateTime" />
+              <xs:element name="total_price" msprop:Generator_ColumnPropNameInRow="total_price" msprop:Generator_ColumnPropNameInTable="total_priceColumn" msprop:Generator_ColumnVarNameInTable="columntotal_price" msprop:Generator_UserColumnName="total_price" type="xs:decimal" />
+              <xs:element name="staff_name" msprop:Generator_ColumnPropNameInRow="staff_name" msprop:Generator_ColumnPropNameInTable="staff_nameColumn" msprop:Generator_ColumnVarNameInTable="columnstaff_name" msprop:Generator_UserColumnName="staff_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="client_Id" msprop:Generator_ColumnPropNameInRow="client_Id" msprop:Generator_ColumnPropNameInTable="client_IdColumn" msprop:Generator_ColumnVarNameInTable="columnclient_Id" msprop:Generator_UserColumnName="client_Id">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

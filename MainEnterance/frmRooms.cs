@@ -22,8 +22,9 @@ namespace MainEnterance
         }
         private void frmRooms_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'hoteldbDataSet11.Room' table. You can move, or remove it, as needed.
+            this.roomTableAdapter2.Fill(this.hoteldbDataSet11.Room);
             // TODO: This line of code loads data into the 'hoteldbDataSet6.Room' table. You can move, or remove it, as needed.
-            this.roomTableAdapter1.Fill(this.hoteldbDataSet6.Room);
         }
 
         public void populate()
@@ -40,9 +41,9 @@ namespace MainEnterance
 
         private void dg_room_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txt_room_number.Text = dg_room.SelectedRows[0].Cells[1].Value.ToString();
-            combo_room_type.SelectedItem = dg_room.SelectedRows[0].Cells[2].Value.ToString();
-            txt_room_price.Text = dg_room.SelectedRows[0].Cells[3].Value.ToString();
+            txt_room_number.Text = dg_room.SelectedRows[0].Cells[0].Value.ToString();
+            combo_room_type.SelectedItem = dg_room.SelectedRows[0].Cells[1].Value.ToString();
+            txt_room_price.Text = dg_room.SelectedRows[0].Cells[2].Value.ToString();
 
         }
 

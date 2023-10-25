@@ -29,17 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.progbar = new Guna.UI2.WinForms.Guna2ProgressBar();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dg_mainRoom = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.roomnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomfreeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.roomBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.hoteldbDataSet10 = new MainEnterance.HoteldbDataSet10();
+            this.roomTableAdapter1 = new MainEnterance.HoteldbDataSet10TableAdapters.RoomTableAdapter();
             this.btn_twitter = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btn_facebook = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btn_youtube = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -49,19 +59,10 @@
             this.btn_room = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btn_client = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btn_staff = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.progbar = new Guna.UI2.WinForms.Guna2ProgressBar();
-            this.label8 = new System.Windows.Forms.Label();
-            this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.roomnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomfreeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.roomBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hoteldbDataSet6 = new MainEnterance.HoteldbDataSet6();
-            this.roomTableAdapter = new MainEnterance.HoteldbDataSet6TableAdapters.RoomTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hoteldbDataSet6)).BeginInit();
+            this.btn_refresh = new Guna.UI2.WinForms.Guna2Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_mainRoom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hoteldbDataSet10)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -113,6 +114,155 @@
             this.label5.Size = new System.Drawing.Size(79, 28);
             this.label5.TabIndex = 0;
             this.label5.Text = "Rooms";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(477, 615);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 32);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "     ";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // progbar
+            // 
+            this.progbar.BorderRadius = 10;
+            this.progbar.Location = new System.Drawing.Point(396, 650);
+            this.progbar.Name = "progbar";
+            this.progbar.Size = new System.Drawing.Size(211, 29);
+            this.progbar.TabIndex = 9;
+            this.progbar.Text = "guna2ProgressBar1";
+            this.progbar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.progbar.ValueChanged += new System.EventHandler(this.progbar_ValueChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.Location = new System.Drawing.Point(428, 128);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(163, 26);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Available Rooms";
+            // 
+            // dg_mainRoom
+            // 
+            this.dg_mainRoom.AllowUserToAddRows = false;
+            this.dg_mainRoom.AllowUserToDeleteRows = false;
+            this.dg_mainRoom.AllowUserToResizeColumns = false;
+            this.dg_mainRoom.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dg_mainRoom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dg_mainRoom.AutoGenerateColumns = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dg_mainRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dg_mainRoom.ColumnHeadersHeight = 31;
+            this.dg_mainRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dg_mainRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.roomnumberDataGridViewTextBoxColumn,
+            this.roomtypeDataGridViewTextBoxColumn,
+            this.roomfreeDataGridViewCheckBoxColumn});
+            this.dg_mainRoom.DataSource = this.roomBindingSource1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dg_mainRoom.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dg_mainRoom.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
+            this.dg_mainRoom.Location = new System.Drawing.Point(243, 165);
+            this.dg_mainRoom.Name = "dg_mainRoom";
+            this.dg_mainRoom.ReadOnly = true;
+            this.dg_mainRoom.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dg_mainRoom.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dg_mainRoom.RowHeadersVisible = false;
+            this.dg_mainRoom.RowHeadersWidth = 60;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dg_mainRoom.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dg_mainRoom.RowTemplate.Height = 40;
+            this.dg_mainRoom.Size = new System.Drawing.Size(529, 392);
+            this.dg_mainRoom.TabIndex = 10;
+            this.dg_mainRoom.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt;
+            this.dg_mainRoom.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.dg_mainRoom.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dg_mainRoom.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.dg_mainRoom.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+            this.dg_mainRoom.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dg_mainRoom.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dg_mainRoom.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
+            this.dg_mainRoom.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dg_mainRoom.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dg_mainRoom.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dg_mainRoom.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dg_mainRoom.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dg_mainRoom.ThemeStyle.HeaderStyle.Height = 31;
+            this.dg_mainRoom.ThemeStyle.ReadOnly = true;
+            this.dg_mainRoom.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.dg_mainRoom.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dg_mainRoom.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dg_mainRoom.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dg_mainRoom.ThemeStyle.RowsStyle.Height = 40;
+            this.dg_mainRoom.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+            this.dg_mainRoom.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dg_mainRoom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
+            this.dg_mainRoom.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.guna2DataGridView1_CellFormatting);
+            // 
+            // roomnumberDataGridViewTextBoxColumn
+            // 
+            this.roomnumberDataGridViewTextBoxColumn.DataPropertyName = "room_number";
+            this.roomnumberDataGridViewTextBoxColumn.HeaderText = "Room Number";
+            this.roomnumberDataGridViewTextBoxColumn.Name = "roomnumberDataGridViewTextBoxColumn";
+            this.roomnumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // roomtypeDataGridViewTextBoxColumn
+            // 
+            this.roomtypeDataGridViewTextBoxColumn.DataPropertyName = "room_type";
+            this.roomtypeDataGridViewTextBoxColumn.HeaderText = "Room Type";
+            this.roomtypeDataGridViewTextBoxColumn.Name = "roomtypeDataGridViewTextBoxColumn";
+            this.roomtypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // roomfreeDataGridViewCheckBoxColumn
+            // 
+            this.roomfreeDataGridViewCheckBoxColumn.DataPropertyName = "room_free";
+            this.roomfreeDataGridViewCheckBoxColumn.HeaderText = "Available";
+            this.roomfreeDataGridViewCheckBoxColumn.Name = "roomfreeDataGridViewCheckBoxColumn";
+            this.roomfreeDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // roomBindingSource1
+            // 
+            this.roomBindingSource1.DataMember = "Room";
+            this.roomBindingSource1.DataSource = this.hoteldbDataSet10;
+            // 
+            // hoteldbDataSet10
+            // 
+            this.hoteldbDataSet10.DataSetName = "HoteldbDataSet10";
+            this.hoteldbDataSet10.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // roomTableAdapter1
+            // 
+            this.roomTableAdapter1.ClearBeforeFill = true;
             // 
             // btn_twitter
             // 
@@ -250,153 +400,21 @@
             this.btn_staff.TabIndex = 2;
             this.btn_staff.Click += new System.EventHandler(this.btn_staff_Click);
             // 
-            // label7
+            // btn_refresh
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(475, 598);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 36);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "     ";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // progbar
-            // 
-            this.progbar.BorderRadius = 10;
-            this.progbar.Location = new System.Drawing.Point(398, 637);
-            this.progbar.Name = "progbar";
-            this.progbar.Size = new System.Drawing.Size(211, 29);
-            this.progbar.TabIndex = 9;
-            this.progbar.Text = "guna2ProgressBar1";
-            this.progbar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(428, 128);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(163, 26);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Available Rooms";
-            // 
-            // guna2DataGridView1
-            // 
-            this.guna2DataGridView1.AllowUserToAddRows = false;
-            this.guna2DataGridView1.AllowUserToDeleteRows = false;
-            this.guna2DataGridView1.AllowUserToResizeColumns = false;
-            this.guna2DataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.guna2DataGridView1.AutoGenerateColumns = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.guna2DataGridView1.ColumnHeadersHeight = 31;
-            this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.guna2DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.roomnumberDataGridViewTextBoxColumn,
-            this.roomtypeDataGridViewTextBoxColumn,
-            this.roomfreeDataGridViewCheckBoxColumn});
-            this.guna2DataGridView1.DataSource = this.roomBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(243, 165);
-            this.guna2DataGridView1.Name = "guna2DataGridView1";
-            this.guna2DataGridView1.ReadOnly = true;
-            this.guna2DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.guna2DataGridView1.RowHeadersVisible = false;
-            this.guna2DataGridView1.RowHeadersWidth = 60;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2DataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.guna2DataGridView1.RowTemplate.Height = 40;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(529, 402);
-            this.guna2DataGridView1.TabIndex = 10;
-            this.guna2DataGridView1.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.guna2DataGridView1.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 31;
-            this.guna2DataGridView1.ThemeStyle.ReadOnly = true;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 40;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.guna2DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
-            this.guna2DataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.guna2DataGridView1_CellFormatting);
-            // 
-            // roomnumberDataGridViewTextBoxColumn
-            // 
-            this.roomnumberDataGridViewTextBoxColumn.DataPropertyName = "room_number";
-            this.roomnumberDataGridViewTextBoxColumn.HeaderText = "Room Number";
-            this.roomnumberDataGridViewTextBoxColumn.Name = "roomnumberDataGridViewTextBoxColumn";
-            this.roomnumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // roomtypeDataGridViewTextBoxColumn
-            // 
-            this.roomtypeDataGridViewTextBoxColumn.DataPropertyName = "room_type";
-            this.roomtypeDataGridViewTextBoxColumn.HeaderText = "Room Type";
-            this.roomtypeDataGridViewTextBoxColumn.Name = "roomtypeDataGridViewTextBoxColumn";
-            this.roomtypeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // roomfreeDataGridViewCheckBoxColumn
-            // 
-            this.roomfreeDataGridViewCheckBoxColumn.DataPropertyName = "room_free";
-            this.roomfreeDataGridViewCheckBoxColumn.HeaderText = "Available";
-            this.roomfreeDataGridViewCheckBoxColumn.Name = "roomfreeDataGridViewCheckBoxColumn";
-            this.roomfreeDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // roomBindingSource
-            // 
-            this.roomBindingSource.DataMember = "Room";
-            this.roomBindingSource.DataSource = this.hoteldbDataSet6;
-            // 
-            // hoteldbDataSet6
-            // 
-            this.hoteldbDataSet6.DataSetName = "HoteldbDataSet6";
-            this.hoteldbDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // roomTableAdapter
-            // 
-            this.roomTableAdapter.ClearBeforeFill = true;
+            this.btn_refresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_refresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_refresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_refresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_refresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btn_refresh.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_refresh.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_refresh.Location = new System.Drawing.Point(435, 563);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(138, 45);
+            this.btn_refresh.TabIndex = 11;
+            this.btn_refresh.Text = "Refresh Rooms";
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // frmMain
             // 
@@ -404,9 +422,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1018, 764);
+            this.Controls.Add(this.btn_refresh);
             this.Controls.Add(this.progbar);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.guna2DataGridView1);
+            this.Controls.Add(this.dg_mainRoom);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_twitter);
             this.Controls.Add(this.btn_facebook);
@@ -428,9 +447,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main Form";
             this.Load += new System.EventHandler(this.frmMain_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hoteldbDataSet6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_mainRoom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hoteldbDataSet10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,12 +474,13 @@
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2ProgressBar progbar;
         private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
-        private HoteldbDataSet6 hoteldbDataSet6;
-        private System.Windows.Forms.BindingSource roomBindingSource;
-        private HoteldbDataSet6TableAdapters.RoomTableAdapter roomTableAdapter;
+        private Guna.UI2.WinForms.Guna2DataGridView dg_mainRoom;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomnumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomtypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn roomfreeDataGridViewCheckBoxColumn;
+        private HoteldbDataSet10 hoteldbDataSet10;
+        private System.Windows.Forms.BindingSource roomBindingSource1;
+        private HoteldbDataSet10TableAdapters.RoomTableAdapter roomTableAdapter1;
+        private Guna.UI2.WinForms.Guna2Button btn_refresh;
     }
 }

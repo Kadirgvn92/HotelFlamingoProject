@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClient));
             this.txt_country = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,19 +60,19 @@
             this.txt_email = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_search = new Guna.UI2.WinForms.Guna2ImageButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_exit = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2TabControl2 = new Guna.UI2.WinForms.Guna2TabControl();
             this.Reservation = new System.Windows.Forms.TabPage();
-            this.ReserveInfo = new System.Windows.Forms.TabPage();
-            this.btn_exit = new Guna.UI2.WinForms.Guna2ImageButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ReserveInfo = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_client)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoteldbDataSet4)).BeginInit();
             this.panel1.SuspendLayout();
             this.guna2TabControl2.SuspendLayout();
             this.Reservation.SuspendLayout();
-            this.ReserveInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ReserveInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_country
@@ -307,22 +307,22 @@
             // dtg_client
             // 
             this.dtg_client.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtg_client.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtg_client.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_client.AutoGenerateColumns = false;
             this.dtg_client.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_client.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_client.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_client.ColumnHeadersHeight = 25;
             this.dtg_client.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clientIdDataGridViewTextBoxColumn,
@@ -333,26 +333,26 @@
             this.client_address,
             this.client_dob});
             this.dtg_client.DataSource = this.clientBindingSource2;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_client.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_client.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtg_client.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtg_client.Location = new System.Drawing.Point(16, 59);
             this.dtg_client.Name = "dtg_client";
             this.dtg_client.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_client.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_client.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg_client.RowHeadersVisible = false;
             this.dtg_client.RowHeadersWidth = 60;
             this.dtg_client.RowTemplate.Height = 40;
@@ -589,6 +589,7 @@
             this.txt_clientId.IconLeftSize = new System.Drawing.Size(30, 30);
             this.txt_clientId.Location = new System.Drawing.Point(57, 26);
             this.txt_clientId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_clientId.MaxLength = 11;
             this.txt_clientId.Name = "txt_clientId";
             this.txt_clientId.PasswordChar = '\0';
             this.txt_clientId.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -733,6 +734,21 @@
             this.panel1.Size = new System.Drawing.Size(1293, 85);
             this.panel1.TabIndex = 9;
             // 
+            // btn_exit
+            // 
+            this.btn_exit.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btn_exit.HoverState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_exit.Image = global::MainEnterance.Properties.Resources.shutdown_44369541;
+            this.btn_exit.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btn_exit.ImageRotate = 0F;
+            this.btn_exit.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_exit.Location = new System.Drawing.Point(1245, 12);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_exit.Size = new System.Drawing.Size(38, 39);
+            this.btn_exit.TabIndex = 4;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
+            // 
             // guna2TabControl2
             // 
             this.guna2TabControl2.Controls.Add(this.Reservation);
@@ -786,6 +802,17 @@
             this.Reservation.TabIndex = 0;
             this.Reservation.Text = "Customer Details";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(954, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(322, 343);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // ReserveInfo
             // 
             this.ReserveInfo.Controls.Add(this.txt_search);
@@ -798,32 +825,6 @@
             this.ReserveInfo.TabIndex = 1;
             this.ReserveInfo.Text = "Customer Table";
             this.ReserveInfo.UseVisualStyleBackColor = true;
-            // 
-            // btn_exit
-            // 
-            this.btn_exit.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btn_exit.HoverState.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_exit.Image = global::MainEnterance.Properties.Resources.shutdown_44369541;
-            this.btn_exit.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btn_exit.ImageRotate = 0F;
-            this.btn_exit.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_exit.Location = new System.Drawing.Point(1245, 12);
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.PressedState.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_exit.Size = new System.Drawing.Size(38, 39);
-            this.btn_exit.TabIndex = 4;
-            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(954, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(322, 343);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // frmClient
             // 
@@ -846,8 +847,8 @@
             this.guna2TabControl2.ResumeLayout(false);
             this.Reservation.ResumeLayout(false);
             this.Reservation.PerformLayout();
-            this.ReserveInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ReserveInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

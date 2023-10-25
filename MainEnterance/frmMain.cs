@@ -21,6 +21,8 @@ namespace MainEnterance
             InitializeComponent();
         }
 
+
+
         private void occupancyRate()
         {
             try
@@ -28,7 +30,7 @@ namespace MainEnterance
                 conn.Open();
 
                 // "Yes" olan odaların sayısını al
-                string query = "SELECT COUNT(*) FROM Room WHERE room_free = 'True'";
+                string query = "SELECT COUNT(*) FROM Room WHERE room_free = 'False'";
                 SqlCommand command = new SqlCommand(query, conn);
                 int yesCount = (int)command.ExecuteScalar();
 
@@ -54,10 +56,11 @@ namespace MainEnterance
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'hoteldbDataSet10.Room' table. You can move, or remove it, as needed.
+            this.roomTableAdapter1.Fill(this.hoteldbDataSet10.Room);
             // TODO: This line of code loads data into the 'hoteldbDataSet6.Room' table. You can move, or remove it, as needed.
-            this.roomTableAdapter.Fill(this.hoteldbDataSet6.Room);
             occupancyRate();
-            guna2DataGridView1.CellFormatting += guna2DataGridView1_CellFormatting;
+            dg_mainRoom.CellFormatting += guna2DataGridView1_CellFormatting;
             
         }
 
@@ -121,7 +124,7 @@ namespace MainEnterance
 
         private void guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            guna2DataGridView1.RowTemplate.Height= 0;   
+            dg_mainRoom.RowTemplate.Height= 0;   
             if (e.ColumnIndex == 2) // room_free sütununun indeksini belirtmelisiniz
             {
                 if (e.Value != null && e.Value is bool)
@@ -131,17 +134,27 @@ namespace MainEnterance
                     {
                         // Oda boşsa, hücrenin arka plan rengini yeşil yap
 
-                        guna2DataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.YellowGreen;
-                        guna2DataGridView1.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = Color.YellowGreen; // Seçildiğinde de aynı renk olmasını sağla
+                        dg_mainRoom.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.YellowGreen;
+                        dg_mainRoom.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = Color.YellowGreen; // Seçildiğinde de aynı renk olmasını sağla
                     }
                     else
                     {
                         // Oda doluysa, hücrenin arka plan rengini kırmızı yap
-                        guna2DataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightCoral;
-                        guna2DataGridView1.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = Color.LightCoral;// Seçildiğinde de aynı renk olmasını sağlar
+                        dg_mainRoom.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightCoral;
+                        dg_mainRoom.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = Color.LightCoral;// Seçildiğinde de aynı renk olmasını sağlar
                     }
                 }
             }
+        }
+
+        private void progbar_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }

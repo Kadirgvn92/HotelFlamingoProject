@@ -31,6 +31,7 @@ namespace MainEnterance
             conn.Close();
         }
 
+
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -48,15 +49,14 @@ namespace MainEnterance
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO Client VALUES('" + txt_clientId.Text + "' , '" + txt_clientName.Text + "', '" + txt_phone.Text + "','" + txt_email.Text + "' , '" + txt_country.SelectedItem.ToString() + "', '" + txt_address.Text + "','" + 
-                    date_dob.Value.ToString("yyyy-MM-dd") + "')", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Client VALUES('" + txt_clientId.Text + "' , '" + txt_clientName.Text + "', '" + txt_phone.Text + "','" + txt_email.Text + "' , '" + txt_country.SelectedItem.ToString() + "', '" + txt_address.Text + "','" + date_dob.Value.ToString("yyyy-MM-dd") + "')", conn);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Client succesfully added", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 conn.Close();
                 populate();
             }catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Plase make sure all fields are filled", "Info", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             
         }
@@ -158,7 +158,7 @@ namespace MainEnterance
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Plase make sure all fields are filled", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

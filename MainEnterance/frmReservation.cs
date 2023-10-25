@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+using MainEnterance;
 
 namespace MainEnterance
 {
@@ -22,7 +25,7 @@ namespace MainEnterance
 
         private void num1_ValueChanged(object sender, EventArgs e)
         {
-            numAdultEnable();
+            
         }
         public void populate()
         {
@@ -35,103 +38,197 @@ namespace MainEnterance
             dg_reserve.DataSource = dataSet;
             conn.Close();
         }
-        private void numAdultEnable()
-        {
-            if (num1.Value == 1)
-            {
-                txt_customer2.Enabled = false;
-                txt_customer3.Enabled = false;
-            }
-            if (num1.Value == 2)
-            {
-                txt_customer2.Enabled = true;
-                txt_customer3.Enabled = false;
-            }
-            if (num1.Value == 3)
-            {
-                txt_customer2.Enabled = true;
-                txt_customer3.Enabled = true;
-            }
-        }
 
-        private void numChildEnable()
-        {
-            if(num_child.Value == 0)
-            {
-                txt_child1.Enabled = false;
-                num_childAge1.Enabled = false;
-                lbl_childAge1.Enabled = false;
-
-                txt_child2.Enabled = false;
-                num_childAge2.Enabled = false;
-                lbl_childAge2.Enabled = false;
-
-                txt_child3.Enabled = false;
-                num_childAge3.Enabled = false;
-                lbl_childAge3.Enabled = false;
-
-            }
-            if (num_child.Value == 1)
-            {
-                txt_child1.Enabled = true;
-                num_childAge1.Enabled = true;
-                lbl_childAge1.Enabled = true;
-
-                txt_child2.Enabled = false;
-                num_childAge2.Enabled = false;
-                lbl_childAge2.Enabled = false;
-
-                txt_child3.Enabled = false;
-                num_childAge3.Enabled = false;
-                lbl_childAge3.Enabled = false;
-            }
-            if (num_child.Value == 2)
-            {
-                txt_child2.Enabled = true;
-                num_childAge2.Enabled = true;
-                lbl_childAge2.Enabled = true;
-
-                txt_child3.Enabled = false;
-                num_childAge3.Enabled = false;
-                lbl_childAge3.Enabled = false;
-            }
-            if (num_child.Value == 3)
-            {
-                txt_child3.Enabled = true;
-                num_childAge3.Enabled = true;
-                lbl_childAge3.Enabled = true;
-            }
-        }
         private void num_child_ValueChanged(object sender, EventArgs e)
         {
-            numChildEnable();
+
         }
-
-
-        private void btn_reserve_Click(object sender, EventArgs e)
+        public void totalPrice()
         {
+            string roomNumber = txt_room_number.Text;
+            decimal roomPrice = 0;
+            string reserveType = txt_reserveType.SelectedItem.ToString();
+            decimal boardingPrice = 0;
+
+            if (reserveType == "All Inclusive")
+            {
+                boardingPrice = 50;
+            }
+            else if (reserveType == "Full Board")
+            {
+                boardingPrice = 30;
+            }
+            else if (reserveType == "Half Board")
+            {
+                boardingPrice = 10;
+            }
+
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO Reservation VALUES('" + txt_customer1.Text + "' , '" +  txt_room_number.Text + "','" +  txt_reserveType.SelectedItem.ToString() + "', '" + 
-                num1.Value.ToString() + "','" + num_child.Value.ToString() + "' , '" + check_in_date.Value.ToString("yyyy-MM-dd") + "', '" + check_out_date.Value.ToString("yyyy-MM-dd") + "','" +
-                lbl_price.Text + "', '" + lbl_price.Text + "')", conn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Client succesfully added", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string query = "SELECT room_price FROM Room WHERE room_number = @roomNumber";
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("@roomNumber", roomNumber);
+
+                    // Sorguyu çalıştırın ve sonucu alın
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            roomPrice = Convert.ToDecimal(reader["room_price"]);
+                        }
+                    }
+                }
                 conn.Close();
-                populate();
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Invalid input. Please check your information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            DateTime checkInDate = check_in_date.Value;
+            DateTime checkOutDate = check_out_date.Value;
+            TimeSpan stayDuration = checkOutDate - checkInDate;
+            int nightsStayed = stayDuration.Days;
+
+            // Örnek oda fiyatları ve kurallar
+            decimal childDiscount = 0.5M; // Çocuklar için indirim (örneğin yüzde 50)
+            decimal extraAdultCharge = 30; // Ekstra yetişkinler için ücret
+
+            // Kullanıcıdan gelen yetişkin ve çocuk sayıları
+            int adultCount = Convert.ToInt32(num1.Value);
+            int childCount = Convert.ToInt32(num_child.Value);
+
+            // Kullanıcıdan gelen boarding type (konaklama türü) verisi
+            string boardingType = txt_reserveType.SelectedItem.ToString();
+
+            // Toplam fiyat hesaplama
+            decimal totalPrice = (roomPrice * adultCount) + (roomPrice * childCount * childDiscount);
+
+            // Ekstra yetişkinlerin ücretini ekleyin (örneğin 2 yetişkin ücretsiz, ekstra yetişkinler için ücret alın)
+            if (adultCount > 2)
+            {
+                totalPrice += extraAdultCharge * (adultCount - 1) * nightsStayed;
+            }
+
+            // Boarding fiyatını hesaplayın ve ekleyin (örneğin Full Board için $30 ekleyin)
+            if(boardingType == "All Inclusive")
+            {
+                decimal fullBoardPrice = 50; // Örnek fiyat
+                totalPrice += fullBoardPrice * nightsStayed;
+            }
+            else if (boardingType == "Full Board")
+            {
+                decimal fullBoardPrice = 30; // Örnek fiyat
+                totalPrice += fullBoardPrice * nightsStayed;
+            }
+            else if (boardingType == "Half Board")
+            {
+                decimal halfBoardPrice = 15; // Örnek fiyat
+                totalPrice += halfBoardPrice * nightsStayed;
+            }
+
+            string formattedValue = totalPrice.ToString("0.00");
+            lbl_price.Text = formattedValue;
+
+        }
+
+        private void roomReserve()
+        {
+            int selectedRoomNumber = Convert.ToInt32(txt_room_number.Text);
+            string updateQuery = "UPDATE Room SET room_free = 0 WHERE room_number = @SelectedRoomNumber";
+            SqlCommand cmdRoom = new SqlCommand(updateQuery, conn);
+            cmdRoom.Parameters.AddWithValue("@SelectedRoomNumber", selectedRoomNumber);
+
+            int affectedRows = cmdRoom.ExecuteNonQuery(); // Odayı rezerve et (room_free'yi 1 yap)
+
+            if (affectedRows > 0)
+            {
+                // Değişiklikler kaydedildi.
+                MessageBox.Show("Oda başarıyla rezerve edildi.");
+            }
+            else
+            {
+                // Değişiklikler kaydedilemedi veya oda bulunamadı.
+                MessageBox.Show("Oda rezerve edilemedi. Lütfen tekrar deneyin.");
+            }
+
+        }
+        private void btn_reserve_Click(object sender, EventArgs e)
+        {
+            if (radio_cash.Checked == false && radio_card.Checked == false)
+            {
+                MessageBox.Show("Please choose the payment method as cash or as credit card", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (radio_cash.Checked)
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Reservation VALUES('" + txt_customer1.Text + "' , '" + txt_room_number.Text + "','" + txt_reserveType.SelectedItem.ToString() + "', '" +
+                    num1.Value.ToString() + "','" + num_child.Value.ToString() + "' , '" + check_in_date.Value.ToString("yyyy-MM-dd") + "', '" + check_out_date.Value.ToString("yyyy-MM-dd") + "','" +
+                    lbl_price.Text + "')", conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Reservation successful! Your booking is confirmed.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    roomReserve();
+
+
+
+                    conn.Close();
+                    populate();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (radio_card.Checked)
+            {
+                if (txt_cardName.Text == "" && txt_cardNumber.Text == "" && txt_expriy.Text == "" && txt_cvc.Text == "")
+                {
+                    MessageBox.Show("Make sure all Credit Card fields are filled", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    try
+                    {
+                        conn.Open();
+
+                        SqlCommand cmd1 = new SqlCommand("INSERT INTO Reservation VALUES('" + txt_customer1.Text + "' , '" + txt_room_number.Text + "','" + txt_reserveType.SelectedItem.ToString() + "', '" +
+                        num1.Value.ToString() + "','" + num_child.Value.ToString() + "' , '" + check_in_date.Value.ToString("yyyy-MM-dd") + "', '" + check_out_date.Value.ToString("yyyy-MM-dd") + "','" +
+                        lbl_price.Text + "')", conn);
+                        cmd1.ExecuteNonQuery();
+                        MessageBox.Show("Reservation successful! Your booking is confirmed.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        roomReserve();
+
+                        if (checkBox1.Checked)
+                        {
+                            SqlCommand cmd = new SqlCommand("Insert into CreditCard Values('" + txt_cardName.Text + "', '" + txt_cardNumber.Text + "', '" + txt_expriy.Text + "', '" + txt_cvc.Text + "')", conn);
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Credit Card is saved successfully !", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        conn.Close();
+                        populate();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Invalid input. Please check your information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
         private void frmReservation_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'hoteldbDataSet8.ReservationView' table. You can move, or remove it, as needed.
-            this.reservationViewTableAdapter.Fill(this.hoteldbDataSet8.ReservationView);
-            // TODO: This line of code loads data into the 'hoteldbDataSet7.Reservation' table. You can move, or remove it, as needed
+            // TODO: This line of code loads data into the 'hoteldbDataSet14.ReservationView' table. You can move, or remove it, as needed.
+            this.reservationViewTableAdapter.Fill(this.hoteldbDataSet14.ReservationView);
+            // TODO: This line of code loads data into the 'hoteldbDataSet13.ReservationView' table. You can move, or remove it, as needed.
+            populate();
         }
 
         private void label15_Click(object sender, EventArgs e)
@@ -180,7 +277,7 @@ namespace MainEnterance
                 }
             }
             txt_expriy.Text = input;
-            txt_expriy.SelectionStart = input.Length; // Kursoru metin
+            txt_expriy.SelectionStart = input.Length; 
         }
 
         private void txt_cardNumber_KeyPress(object sender, KeyPressEventArgs e)
@@ -234,6 +331,60 @@ namespace MainEnterance
         {
             frmAvailableRooms frmAvailableRooms = new frmAvailableRooms();
             frmAvailableRooms.Show();
+        }
+
+        private void txt_customer1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_customer1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Sadece rakam veya kontrol karakterlerine izin ver
+            }
+        }
+
+        private void txt_room_number_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Sadece rakam veya kontrol karakterlerine izin ver
+            }
+
+        }
+        private void btn_getTotal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                totalPrice();
+                lbl_price.Visible = true;
+                label15.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                lbl_price.Visible = false;
+            }
+
+        }
+
+        private void btn_reserve_MouseEnter(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+            toolTip.SetToolTip(btn_reserve, "Please make sure all fields are filled.");
+        }
+
+        private void btn_reserve_MouseLeave(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+            toolTip.SetToolTip(btn_reserve, string.Empty);
+        }
+
+        private void btn_checkCustomer_Click(object sender, EventArgs e)
+        {
+            frmCheckCustomer frmCheckCustomer = new frmCheckCustomer();
+            frmCheckCustomer.Show();
         }
     }
 }
