@@ -1,5 +1,6 @@
 # Hotel Flamingo Project
 
+https://hotelflamingo.my.canva.site/home
 The Hotel Management System is a comprehensive software application for managing various aspects of a hotel, including room reservations, customer information, and room management. This README provides an in-depth guide on how to set up, use, and contribute to the project.
 
 ## Introduction
